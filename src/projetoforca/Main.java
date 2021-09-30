@@ -67,6 +67,8 @@ public class Main {
                 }            
             } 
         }
+        
+        System.out.println("A palavra era: " + jogo.getDicionario()[jogo.getPosicaoSorteada()].getPalavra());
         System.out.println("O jogo acabou, você adquiriu " + pontos + " pontos");
     }
         

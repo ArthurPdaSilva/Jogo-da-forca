@@ -69,7 +69,7 @@ public class JogoDaForca {
     
     public boolean testaSeAcabou(){
         if(!this.getGabarito().contains("?")){
-            this.getDicionario()[posicaoSorteada].setPalavra(null);
+            this.getDicionario()[posicaoSorteada] = null;
             this.posicaoSorteada = -1;
             return true;
         }
