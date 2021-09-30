@@ -23,17 +23,30 @@ public class JogoDaForca {
     }
     
     public String pegarDica(){
-      
-        this.getDicionario()[this.getPosicaoSorteada()].setDica("" + this.getDicionario()[this.getPosicaoSorteada()].getPalavra().charAt(0) + this.getDicionario()[this.getPosicaoSorteada()].getPalavra().charAt(1));
-        return "As duas primeiras letras são: " + dicionario[this.getPosicaoSorteada()].getDica();
+        String pista;
+        if(this.getPosicaoSorteada() < 5){
+            pista = "Animal";
+        }else if(this.getPosicaoSorteada() < 10){
+            pista = "Fruta";
+        }else if(this.getPosicaoSorteada() < 15){
+            pista = "Veículo";
+        }else{
+            pista = "Roupa";
+        }
+        
+        this.getDicionario()[this.getPosicaoSorteada()].setDica(pista);
+        
+        return this.getDicionario()[this.getPosicaoSorteada()].getDica();
     }
     
     public void sortear(){
-        this.posicaoSorteada = (int)(Math.random() * 10);
-        while(this.getDicionario()[posicaoSorteada].getPalavra() == null){
-            this.posicaoSorteada = (int)(Math.random() * 10);
-        }
-        this.gabarito = "";
+        this.posicaoSorteada = (int)(Math.random() * this.getDicionario().length);
+        this.gabarito = "";   
+              
+        while(this.getDicionario()[posicaoSorteada] == null){
+            this.posicaoSorteada = (int)(Math.random() * this.getDicionario().length);
+        }   
+        
         for(int c = 0; c < this.getDicionario()[posicaoSorteada].getPalavra().length(); c++){
             this.gabarito += "?";
         }
